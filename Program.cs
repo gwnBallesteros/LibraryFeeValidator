@@ -11,11 +11,17 @@ namespace LibraryFee
             string studentName;
             string librarianName;
             char classif;
+            //decimal SetCost;
 
             Header();
             studentName = InputStudentName();
             librarianName = InputNameInCharge();
             classif = InputYearLevel();
+            CostForm studentCostForm = new CostForm(studentName, librarianName, classif);
+
+            Clear();
+            WriteLine(studentCostForm);
+            ReadKey();
         }
 
         static void Header()
@@ -32,10 +38,11 @@ namespace LibraryFee
         public static string InputStudentName()
         {
             string stuNumber;
-
+            
             Write("Name of the Student: ");
             stuNumber = ReadLine();
             return stuNumber;
+
         }
 
         static public char InputYearLevel()

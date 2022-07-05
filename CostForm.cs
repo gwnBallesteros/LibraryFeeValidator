@@ -67,50 +67,74 @@ namespace LibraryFee
 
             set
             {
-                classif = value;  
+                classif = value;
             }
         }
 
-        public void Classification(char ClassifLevl)
+        public decimal SetCost()
         {
             decimal baseFee = 0;
             decimal setCost = baseFee + MISC_FEE;
+            if (classif == 'A' || classif == 'a')
+                setCost = FRESHMAN_FEE + MISC_FEE;
+            else if (classif == 'B' || classif == 'b')
+                setCost = SOPHOMORE_FEE + MISC_FEE;
+            else if (classif == 'C' || classif == 'c')
+                setCost = JUNIOR_FEE + MISC_FEE;
+            else if (classif == 'D' || classif == 'd')
+                setCost = SENIOR_FEE + MISC_FEE;
+            else if (classif == 'E' || classif == 'e')
+                setCost = COLLEGE_FEE + MISC_FEE;
+
+            return setCost;
+        }
+
+        public string ReturnNameOfClassification()
+        {
             string classificationLevel;
-            switch(classif)
+            switch (classif)
             {
                 case 'A':
                 case 'a':
                     classificationLevel = "Freshman";
-                    baseFee = FRESHMAN_FEE;
-                    setCost = baseFee + MISC_FEE;
                     break;
                 case 'B':
                 case 'b':
                     classificationLevel = "Sophomore";
-                    baseFee = SOPHOMORE_FEE;
-                    setCost = baseFee + MISC_FEE;
                     break;
                 case 'C':
                 case 'c':
                     classificationLevel = "Junior";
-                    baseFee = JUNIOR_FEE;
-                    setCost = baseFee + MISC_FEE;
                     break;
                 case 'D':
                 case 'd':
                     classificationLevel = "Senior";
-                    baseFee = SENIOR_FEE;
-                    setCost = baseFee + MISC_FEE;
                     break;
                 case 'E':
                 case 'e':
                     classificationLevel = "COLLEGE";
-                    baseFee = COLLEGE_FEE;
-                    setCost = baseFee + MISC_FEE;
                     break;
-            }
+                default:
+                    classificationLevel = "UNKNOWN";
+                    break;
 
+            }
+            return classificationLevel;
         }
+
+        public override string ToString()
+        {
+            return " =================================================== " + 
+                "\n                      Cost Form                    " +
+                "\n =================================================== " +
+                "\n Name of the Student: " + studentName +
+                "\n Year Level: " + ReturnNameOfClassification() +
+                "\n Overall Fee: " + SetCost() +
+                "\n =================================================== " +
+                "\n" + "\n Validated by: " + librarianName +
+                "\n =================================================== ";
+        } 
+
 
     }
 }
