@@ -46,11 +46,11 @@ namespace LibraryFee
             Console.WriteLine("===================================================");
             Console.WriteLine("                    YEAR LEVELS                    ");
             Console.WriteLine("===================================================");
-            Console.WriteLine("[A] Freshmen");
+            Console.WriteLine("[A] Freshman");
             Console.WriteLine("[B] Sophomore");
             Console.WriteLine("[C] Junior");
-            Console.WriteLine("[A] Senior");
-            Console.WriteLine("[D] College");
+            Console.WriteLine("[D] Senior");
+            Console.WriteLine("[E] College");
             Console.WriteLine("===================================================");
             Write("Enter the year level: ");
             yearLevel = Convert.ToChar(ReadLine());
