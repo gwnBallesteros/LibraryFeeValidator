@@ -5,6 +5,7 @@ namespace LibraryFee
 {
     class LibraryFeeApp
     {
+        //Main function
         static void Main(string[] args)
         {
             //Declaring variables
@@ -13,10 +14,12 @@ namespace LibraryFee
             char classif;
             //decimal SetCost;
 
+            //Calling the functions then assigning it to the variables
             Header();
             studentName = InputStudentName();
             librarianName = InputNameInCharge();
             classif = InputYearLevel();
+            //Calling the method
             CostForm studentCostForm = new CostForm(studentName, librarianName, classif);
 
             Clear();
@@ -24,6 +27,7 @@ namespace LibraryFee
             ReadKey();
         }
 
+        //Header function
         static void Header()
         {
             Console.WriteLine("===================================================");
@@ -35,6 +39,7 @@ namespace LibraryFee
             Console.WriteLine();
         }
 
+        //Function for the Student's Name
         public static string InputStudentName()
         {
             string stuNumber;
@@ -45,6 +50,7 @@ namespace LibraryFee
 
         }
 
+        //Function for the input of the year level
         static public char InputYearLevel()
         {
             char yearLevel;
@@ -64,6 +70,7 @@ namespace LibraryFee
             return yearLevel;
         }
 
+        //Inout for the librarian's name
         static public string InputNameInCharge()
         {
             string nameStaff;

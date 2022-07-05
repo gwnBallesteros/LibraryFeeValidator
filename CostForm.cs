@@ -26,6 +26,7 @@ namespace LibraryFee
 
         }
 
+        //Assigning the variables
         public CostForm(string sName, string lName, char classifLevel)
         {
             studentName = sName;
@@ -33,6 +34,7 @@ namespace LibraryFee
             classif = classifLevel;
         }
 
+        //To get and stored the value of the inputs
         public string StudentsName
         {
             get
@@ -71,10 +73,10 @@ namespace LibraryFee
             }
         }
 
+        //Calculate the Cost
         public decimal SetCost()
         {
-            decimal baseFee = 0;
-            decimal setCost = baseFee + MISC_FEE;
+            decimal setCost = 0;
             if (classif == 'A' || classif == 'a')
                 setCost = FRESHMAN_FEE + MISC_FEE;
             else if (classif == 'B' || classif == 'b')
@@ -89,10 +91,11 @@ namespace LibraryFee
             return setCost;
         }
 
+        //Return the classification level that going to Display in the Cost Form
         public string ReturnNameOfClassification()
         {
             string classificationLevel;
-            switch (classif)
+            switch (classif) //Use the classif variable in the program.cs
             {
                 case 'A':
                 case 'a':
@@ -122,6 +125,7 @@ namespace LibraryFee
             return classificationLevel;
         }
 
+        //Display the Cost Form
         public override string ToString()
         {
             return " =================================================== " + 
